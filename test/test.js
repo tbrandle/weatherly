@@ -31,8 +31,10 @@ describe('testing Weatherly in enzyme', () => {
 });
 
 describe('WeahterCards component testing in enzyme', () => {
-  it.skip('WeatherCards should have an Hourly component with 7 instantiations', () => {
-    const wrapper = shallow(<WeatherCards/>);
+  const weatherFake = require('./helpers/stub.json')
+  it.only('WeatherCards should have an Hourly component with 7 instantiations', () => {
+    const wrapper = shallow(<WeatherCards weather={ weatherFake } />);
+
     expect(wrapper.find('Hourly')).to.have.length(7);
   });
   // hourly is a component - length
