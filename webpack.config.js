@@ -1,7 +1,7 @@
 module.exports = {
   entry: {
     main: ['babel-polyfill', './lib/index.js'],
-    test: ['babel-polyfill', 'mocha!./test/index.js'],
+    test: ['babel-polyfill', 'mocha!./test/test.js'],
   },
   output: {
     path: __dirname,
@@ -17,8 +17,16 @@ module.exports = {
           presets: ['es2015', 'react'],
         },
       },
-      { test: /\.css$/, loader: 'style!css' },
-      { test: /\.scss$/, loader: 'style!css!sass' },
+      {
+        test: /\.css$/,
+        exclude: /(node_modules|bower_components)/,
+        loader: 'style!css'
+      },
+      {
+        test: /\.scss$/,
+        exclude: /(node_modules|bower_components)/,
+        loader: 'style!css!sass'
+      },
     ],
   },
   resolve: {

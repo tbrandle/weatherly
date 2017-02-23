@@ -1,2 +1,4 @@
 TODO:
 - clear inputs onClick of submit btn
+- create helper function to clean up weather Object
+- create stub file.

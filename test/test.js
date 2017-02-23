@@ -4,7 +4,6 @@ import { shallow, mount, render } from 'enzyme';
 import Main from '../lib/Components/Main';
 import Weatherly from '../lib/Components/Weatherly';
 import WeatherCards from '../lib/Components/WeatherCards';
-require('locus')
 
 
 describe('testing Weatherly in enzyme', () => {
@@ -32,9 +31,8 @@ describe('testing Weatherly in enzyme', () => {
 });
 
 describe('WeahterCards component testing in enzyme', () => {
-  it.only('WeatherCards should have an Hourly component with 7 instantiations', () => {
+  it.skip('WeatherCards should have an Hourly component with 7 instantiations', () => {
     const wrapper = shallow(<WeatherCards/>);
-    // eval(locus)
     expect(wrapper.find('Hourly')).to.have.length(7);
   });
   // hourly is a component - length
