@@ -16,12 +16,11 @@ body *{
   position: relative;
 }
 
-.state,
-.city {
+.location {
   text-align: center;
   border: none;
   border-bottom: 2px black solid;
-    width: 79px;
+  width: 163px;
   padding: 6px
 }
 
@@ -30,7 +29,7 @@ body *{
 **************************/
 
 .valid-city,
-.today-current {
+.today-current, .ten-day-section {
   margin: 12px auto;
 }
 
@@ -47,15 +46,16 @@ body *{
 }
 
 /**************************
-    HOURLY WEATHER
+    HOURLY  AND TEN DAY WEATHER
 **************************/
 
-.hourly-forecast{
+.hourly-forecast, .ten-day-forecast{
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
+  border-bottom: 1px grey solid;
 }
 
-.hourly{
+.hourly, .ten-day{
   min-width: 100px;
 }
