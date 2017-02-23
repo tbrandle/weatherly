@@ -1,0 +1,61 @@
+html *{
+  background-color: #e5c851;
+}
+
+body *{
+  font-family: 'Abel', sans-serif;
+  height: 100%;
+}
+
+/**************************
+      INPUT SECTION
+**************************/
+
+.input-section {
+  text-align: center;
+  position: relative;
+}
+
+.state,
+.city {
+  text-align: center;
+  border: none;
+  border-bottom: 2px black solid;
+    width: 79px;
+  padding: 6px
+}
+
+/**************************
+      CURRENT WEATHER
+**************************/
+
+.valid-city,
+.today-current {
+  margin: 12px auto;
+}
+
+.today-current{
+  border-bottom: 1px grey solid;
+  padding-bottom: 15px;
+}
+
+.submit{
+  height: 28px;
+  position: absolute;
+  top: 62px;
+  padding: 0 13px;
+}
+
+/**************************
+    HOURLY WEATHER
+**************************/
+
+.hourly-forecast{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.hourly{
+  min-width: 100px;
+}
