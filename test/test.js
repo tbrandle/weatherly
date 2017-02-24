@@ -4,7 +4,7 @@ import { shallow, mount, render } from 'enzyme';
 import Main from '../lib/Components/Main';
 import Weatherly from '../lib/Components/Weatherly';
 import WeatherCards from '../lib/Components/WeatherCards';
-import ObjectCleaner from '../lib/Components/helper';
+import ObjectCleaner from '../lib/Components/ObjectCleaner';
 
 require('locus');
 
