@@ -1,6 +1,4 @@
 TODO:
 - clear inputs onClick of submit btn
-- create helper function to clean up weather Object
-- fix function that tests button click to change state
-- break out current temp section into its own Component
-- write a for loop to instantiate Hourly and Ten Day
+- api auto complete for location?
+- api error for location
