@@ -107,23 +107,21 @@ describe('ObjectCleaner testing in enzyme', () => {
   });
 
   it('Should have an hourly forecast', () => {
-    const hourlyProps = wrapper.props().children[1].props.children[1].props.children;
-
+    const hourlyProps = wrapper.props().children[1].props.children[1].props.hourlyArray;
     hourlyProps.forEach((value, index) => {
-      expect(hourlyProps[index].props).to.have.property('time');
-      expect(hourlyProps[index].props).to.have.property('temp');
-      expect(hourlyProps[index].props).to.have.property('icon');
+      expect(hourlyProps[index]).to.have.property('time');
+      expect(hourlyProps[index]).to.have.property('temp');
+      expect(hourlyProps[index]).to.have.property('icon');
     });
   });
 
   it('Should have a ten day forecast', () => {
-    const tenDayProps = wrapper.props().children[2].props.children[1].props.children;
-
+    const tenDayProps = wrapper.props().children[2].props.children[1].props.tenDayArray;
     tenDayProps.forEach((value, index) => {
-      expect(tenDayProps[index].props).to.have.property('day');
-      expect(tenDayProps[index].props).to.have.property('icon');
-      expect(tenDayProps[index].props).to.have.property('high');
-      expect(tenDayProps[index].props).to.have.property('low');
+      expect(tenDayProps[index]).to.have.property('day');
+      expect(tenDayProps[index]).to.have.property('icon');
+      expect(tenDayProps[index]).to.have.property('high');
+      expect(tenDayProps[index]).to.have.property('low');
     });
   });
 });
