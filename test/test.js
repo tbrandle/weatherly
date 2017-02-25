@@ -4,7 +4,7 @@ import { shallow, mount, render } from 'enzyme';
 import Main from '../lib/Components/Main';
 import Weatherly from '../lib/Components/Weatherly';
 import WeatherCards from '../lib/Components/WeatherCards';
-import ObjectCleaner from '../lib/Components/ObjectCleaner';
+import objectCleaner from '../lib/Components/ObjectCleaner';
 
 require('locus');
 
@@ -29,24 +29,23 @@ describe('testing Weatherly in enzyme', () => {
   it('Weatherly should update location state on input change', () => {
     const wrapper = shallow(<Weatherly/>);
     expect(wrapper.state().location).to.equal('');
-    wrapper.find('.location').simulate('change', {target: {value: 'denver'}})
+    wrapper.find('.location').simulate('change', { target: { value: 'denver' } });
     expect(wrapper.state().location).to.equal('denver');
   });
 
   it('Should update location when a location is already set as the state.', () => {
     const wrapper = shallow(<Weatherly/>);
-    wrapper.find('.location').simulate('change', {target: {value: 'denver'}})
+    wrapper.find('.location').simulate('change', { target: { value: 'denver' } });
     expect(wrapper.state().location).to.equal('denver');
-    wrapper.find('.location').simulate('change', {target: {value: 'englewood'}})
+    wrapper.find('.location').simulate('change', { target: { value: 'englewood' } });
     expect(wrapper.state().location).to.equal('englewood');
-
   });
+
   it.skip('Weatherly should update weather state on button click', () => {
     const wrapper = mount(<Weatherly/>);
     expect(wrapper.state().weather).to.deep.equal([]);
-    wrapper.find('.location').simulate('change', {target: {value: 'denver, co'}});
+    wrapper.find('.location').simulate('change', { target: { value: 'denver, co' } });
     wrapper.find('.submit').simulate('click', 1);
-    console.log(wrapper.state());
     expect(wrapper.state().weather).to.equal([]);
   });
 
@@ -67,7 +66,7 @@ describe('testing Weatherly in enzyme', () => {
 });
 
 describe('WeahterCards component testing in enzyme', () => {
-  const weatherFake = require('./helpers/stub.json')
+  const weatherFake = require('./helpers/stub.json');
   it('WeatherCards should have an Hourly component with 7 instantiations', () => {
     const wrapper = shallow(<WeatherCards weather={ weatherFake } />);
 
@@ -82,26 +81,49 @@ describe('WeahterCards component testing in enzyme', () => {
 
   // state is passed down to all components
 });
-describe('WeahterCards component testing in enzyme', () => {
-
-  const weatherFake = require('./helpers/stub.json')
-
-  it('WeatherCards should have an Hourly component with 7 instantiations', () => {
-    // const wrapper = shallow(<Weatherly/>);
-    // console.log(wrapper.debug('WeatherCards'));
-    console.log(ObjectCleaner(weatherFake));
-    // expect(ObjectCleaner.hourlyForecast(weatherFake)).to.have.length(7);
-  });
-
-  it('WeatherCards should have an TenDay component with 10 instantiations', () => {
-
-    // expect(ObjectCleaner.tenDayForecast(weatherFake)).to.have.length(10);
-  });
-
-  it.skip('WeatherCards should have an TenDay component with 10 instantiations', () => {
-
-    expect(ObjectCleaner.currentForecast(weatherFake)).to.have.length(10);
-  });
-});
 
 // test helper functions
+describe('ObjectCleaner testing in enzyme', () => {
+  const weatherFake = require('./helpers/stub.json');
+  const wrapper = shallow(<WeatherCards weather={objectCleaner(weatherFake)} />);
+
+  it('Should have a current weather object', () => {
+    const currentProps = wrapper.find('CurrentWeather').props();
+    expect(currentProps).to.have.property('city', 'Denver');
+    expect(currentProps).to.have.property('state', 'CO');
+    expect(currentProps).to.have.property('currentTemp', 30.7);
+    expect(currentProps).to.have.property('high', '33');
+    expect(currentProps).to.have.property('low', '20');
+    expect(currentProps).to.have.property('description');
+    expect(currentProps).to.have.property('icon');
+  });
+
+  it('Should have a current date component', () => {
+    const dateProps = wrapper.find('.today-hourly').props().children[0].props;
+
+    expect(dateProps).to.have.property('weekday', 'Thursday');
+    expect(dateProps).to.have.property('month', 'February');
+    expect(dateProps).to.have.property('date', 23);
+  });
+
+  it('Should have an hourly forecast', () => {
+    const hourlyProps = wrapper.props().children[1].props.children[1].props.children;
+
+    hourlyProps.forEach((value, index) => {
+      expect(hourlyProps[index].props).to.have.property('time');
+      expect(hourlyProps[index].props).to.have.property('temp');
+      expect(hourlyProps[index].props).to.have.property('icon');
+    });
+  });
+
+  it.only('Should have a ten day forecast', () => {
+    const tenDayProps = wrapper.props().children[2].props.children[1].props.children;
+
+    tenDayProps.forEach((value, index) => {
+      expect(tenDayProps[index].props).to.have.property('day');
+      expect(tenDayProps[index].props).to.have.property('icon');
+      expect(tenDayProps[index].props).to.have.property('high');
+      expect(tenDayProps[index].props).to.have.property('low');
+    });
+  });
+});
