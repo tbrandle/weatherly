@@ -99,15 +99,14 @@ describe('ObjectCleaner testing in enzyme', () => {
   });
 
   it('Should have a current date component', () => {
-    const dateProps = wrapper.find('.today-hourly').props().children[0].props;
-
+    const dateProps = wrapper.find('Hourly').props().dateObject;
     expect(dateProps).to.have.property('weekday', 'Thursday');
     expect(dateProps).to.have.property('month', 'February');
     expect(dateProps).to.have.property('date', 23);
   });
 
   it('Should have an hourly forecast', () => {
-    const hourlyProps = wrapper.props().children[1].props.children[1].props.hourlyArray;
+    const hourlyProps = wrapper.find('Hourly').props().hourlyArray;
     hourlyProps.forEach((value, index) => {
       expect(hourlyProps[index]).to.have.property('time');
       expect(hourlyProps[index]).to.have.property('temp');
@@ -116,7 +115,7 @@ describe('ObjectCleaner testing in enzyme', () => {
   });
 
   it('Should have a ten day forecast', () => {
-    const tenDayProps = wrapper.props().children[2].props.children[1].props.tenDayArray;
+    const tenDayProps = wrapper.find('TenDay').props().tenDayArray;
     tenDayProps.forEach((value, index) => {
       expect(tenDayProps[index]).to.have.property('day');
       expect(tenDayProps[index]).to.have.property('icon');
