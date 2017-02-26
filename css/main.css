@@ -1,5 +1,7 @@
-html *{
-  background-color: #e5c851;
+html {
+  /*background-color: #e5c851;*/
+  background-image: url('sunny-yellow-blur.png');
+  background-size: cover;
 }
 
 body *{
@@ -21,7 +23,8 @@ body *{
   border: none;
   border-bottom: 2px black solid;
   width: 163px;
-  padding: 6px
+  padding: 6px;
+  background-color: transparent;
 }
 
 /**************************
@@ -54,6 +57,10 @@ body *{
   flex-wrap: wrap;
   justify-content: space-between;
   border-bottom: 1px grey solid;
+}
+
+.hourly-title{
+  flex: 100%;
 }
 
 .hourly, .ten-day{
