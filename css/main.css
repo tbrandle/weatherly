@@ -1,7 +1,7 @@
 html {
   /*background-color: #e5c851;*/
   background-image: url('sunny-yellow-blur.png');
-  background-size: cover;
+  height: 100%;
 }
 
 body *{
