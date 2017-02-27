@@ -11,6 +11,7 @@ body *{
 
 .wrapper {
   text-align: center;
+  margin: 10px;
 }
 
 /**************************
@@ -48,6 +49,7 @@ body *{
 .today-current{
   border-bottom: 1px grey solid;
   padding-bottom: 15px;
+  /*max-width: 90%;*/
 }
 
 .current-location {
@@ -87,14 +89,23 @@ body *{
 **************************/
 
 .hourly-forecast, .ten-day-forecast{
-  display: flex;
-  flex-wrap: wrap;
+  white-space: nowrap;
+  overflow: auto;
   justify-content: space-between;
   border-bottom: 1px grey solid;
 }
 
+.ten-day-section {
+  /*max-width: 90%;*/
+}
+
 .hourly-title{
   flex: 100%;
+}
+
+.ten-day-forecast {
+  display: flex;
+  flex-wrap: wrap;
 }
 
 .hourly, .ten-day{
