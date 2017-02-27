@@ -9,12 +9,15 @@ body *{
   height: 100%;
 }
 
+.wrapper {
+  text-align: center;
+}
+
 /**************************
       INPUT SECTION
 **************************/
 
 .input-section {
-  text-align: center;
   position: relative;
 }
 
@@ -27,26 +30,24 @@ body *{
   background-color: transparent;
 }
 
-/**************************
-      CURRENT WEATHER
-**************************/
-
-.valid-city,
-.today-current, .ten-day-section, .hourly-forecast {
-  margin: 12px auto;
-  max-width: 90%;
-}
-
-.today-current{
-  border-bottom: 1px grey solid;
-  padding-bottom: 15px;
-}
-
 .submit{
   height: 28px;
   position: absolute;
   top: 62px;
   padding: 0 13px;
+}
+/**************************
+      CURRENT WEATHER
+**************************/
+
+.valid-city,
+.today-current, .ten-day-section {
+  margin: 12px auto;
+}
+
+.today-current{
+  border-bottom: 1px grey solid;
+  padding-bottom: 15px;
 }
 
 .current-location {
@@ -81,24 +82,19 @@ body *{
   font-size: 15px;
 }
 
-
 /**************************
     HOURLY/TEN DAY WEATHER
 **************************/
 
-.ten-day-forecast, .hourly-forecast {
+.hourly-forecast, .ten-day-forecast{
+  display: flex;
+  flex-wrap: wrap;
   justify-content: space-between;
   border-bottom: 1px grey solid;
 }
 
-.hourly-forecast {
-  overflow: auto;
-  white-space: nowrap;
-}
-
-.ten-day-forecast {
-  display: flex;
-  flex-wrap: wrap;
+.hourly-title{
+  flex: 100%;
 }
 
 .hourly, .ten-day{
