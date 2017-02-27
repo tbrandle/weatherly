@@ -69,6 +69,17 @@ body *{
   margin-top: inherit;
   font-size: 15px;
 }
+.current-hi, .current-low {
+  display: inline-block;
+}
+
+.current-hi {
+  font-size: 20px;
+}
+
+.current-low {
+  font-size: 15px;
+}
 
 
 /**************************
@@ -100,17 +111,14 @@ body *{
 
 .hourly-title, .ten-day-title {
   font-size: 23px;
-  padding-bottom: auto;
+  margin-bottom: 15px;
 }
 
-.current-hi, .current-low {
-  display: inline-block;
+.hourly-temp {
+  margin-bottom: 3px;
+  font-size: 17px;
 }
 
-.current-hi {
-  font-size: 20px;
-}
-
-.current-low {
-  font-size: 15px;
+.hourly-time {
+  margin-top: 6px;
 }
