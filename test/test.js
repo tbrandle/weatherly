@@ -8,7 +8,6 @@ import objectCleaner from '../lib/Components/ObjectCleaner';
 
 require('locus');
 
-
 describe('testing Weatherly in enzyme', () => {
   it('should have a component called Weatherly', () => {
     const wrapper = shallow(<Main/>);
@@ -60,32 +59,14 @@ describe('testing Weatherly in enzyme', () => {
   });
 
   it.skip('Test the URL func', () => {
-    // validation of locationin weatherly
+    // validation of location - error
 
   });
 });
 
-describe('WeahterCards component testing in enzyme', () => {
-  const weatherFake = require('./helpers/stub.json');
-  it.skip('WeatherCards should have an Hourly component with 7 instantiations', () => {
-    const wrapper = shallow(<WeatherCards weather={ weatherFake } />);
-
-    expect(wrapper.find('Hourly')).to.have.length(7);
-  });
-
-  it.skip('WeatherCards should have a TenDay component with 10 instantiations', () => {
-    const wrapper = shallow(<WeatherCards weather={ weatherFake } />);
-
-    expect(wrapper.find('TenDay')).to.have.length(10);
-  });
-
-  // state is passed down to all components
-});
-
-// test helper functions
 describe('ObjectCleaner testing in enzyme', () => {
   const weatherFake = require('./helpers/stub.json');
-  const wrapper = shallow(<WeatherCards weather={objectCleaner(weatherFake)} />);
+  const wrapper = shallow(<WeatherCards weather={ objectCleaner(weatherFake) } />);
 
   it('Should have a current weather object', () => {
     const currentProps = wrapper.find('CurrentWeather').props();
@@ -112,6 +93,16 @@ describe('ObjectCleaner testing in enzyme', () => {
       expect(hourlyProps[index]).to.have.property('temp');
       expect(hourlyProps[index]).to.have.property('icon');
     });
+  });
+
+  it('Hourly array should have a length of 7', () => {
+    const hourlyProps = wrapper.find('Hourly').props().hourlyArray;
+    expect(hourlyProps).to.have.length(7);
+  });
+
+  it('Ten day array should have a length of 10', () => {
+    const tenDayProps = wrapper.find('TenDay').props().tenDayArray;
+    expect(tenDayProps).to.have.length(10);
   });
 
   it('Should have a ten day forecast', () => {

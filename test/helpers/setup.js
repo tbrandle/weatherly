@@ -10,3 +10,9 @@ global.document = require('jsdom').jsdom(
 
 global.window = document.defaultView // if we have to go to the window (Event bubbling, referencing the window)
 global.navigator = window.navigator // if something is paginated this allows us to go from page to page
+if (!global.window.localStorage) {
+ localStorage = {
+   getItem() { return '[]'; },
+   setItem() {},
+ };
+}
