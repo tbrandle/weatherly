@@ -5,6 +5,7 @@ import Main from '../lib/Components/Main';
 import Weatherly from '../lib/Components/Weatherly';
 import WeatherCards from '../lib/Components/WeatherCards';
 import objectCleaner from '../lib/Components/ObjectCleaner';
+import sinon from 'sinon';
 
 require('locus');
 
@@ -41,6 +42,7 @@ describe('testing Weatherly in enzyme', () => {
   });
 
   it.skip('Weatherly should update weather state on button click', () => {
+    const mockOnClick = sinon.spy();
     const wrapper = mount(<Weatherly/>);
     expect(wrapper.state().weather).to.deep.equal([]);
     wrapper.find('.location').simulate('change', { target: { value: 'denver, co' } });
