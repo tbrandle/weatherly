@@ -1,12 +1,15 @@
 html {
-  /*background-color: #e5c851;*/
-  background-image: url('./images/sunny-yellow-blur.png');
-  height: 100%;
+  background-image: url('./images/background.png');
+  height: 115%;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 body *{
   font-family: 'Abel', sans-serif;
   height: 100%;
+  color: white;
 }
 
 .wrapper {
@@ -22,6 +25,11 @@ body *{
   position: relative;
 }
 
+.form {
+  position: relative;
+  margin: 21.44px
+}
+
 .location {
   text-align: center;
   border: none;
@@ -34,7 +42,7 @@ body *{
 .submit{
   height: 28px;
   position: absolute;
-  top: 62px;
+  top: 2px;
   padding: 0 13px;
 }
 /**************************
@@ -149,22 +157,23 @@ body *{
 **************************/
 @media (min-width: 700px){
 
-  .wrapper {
-    /*display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;*/
+  .input-section {
+    display: flex;
+    justify-content: space-around;
+  }
+
+  .current-temp{
+    font-size: 90px;
   }
 
   .dot-icon {
     display: none;
   }
 
-  .today-current {
-    /*display: inline-block;
-    float: left;
-    clear: both;
-    width: 40%;*/
-  }
+.location{
+  color: black;
+  font-size: 21px;
+}
 
   .hourly-section {
     display: inline-block;
@@ -191,6 +200,25 @@ body *{
     align-content: center;
   }
 
+  .current-description {
+    font-size: 20px;
+  }
 
+  .current-icon {
+    height: 46px;
+  }
+
+  .current-location {
+    font-size: 25px;
+  }
+
+
+  .current-hi {
+    font-size: 25px;
+  }
+
+  .current-low {
+    font-size: 20px;
+  }
 
 }
