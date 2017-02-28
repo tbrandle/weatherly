@@ -14,7 +14,8 @@ body *{
 
 .wrapper {
   text-align: center;
-  background-color: rgba(0, 0, 0, .3)
+  background-color: rgba(0, 0, 0, .2);
+  height: 100%;
 }
 
 /**************************
@@ -23,6 +24,8 @@ body *{
 
 .input-section {
   position: relative;
+  background-color: rgba(0, 0, 0, .3);
+  padding-top: 14px;
 }
 
 .form {
@@ -32,6 +35,7 @@ body *{
 
 .logo {
   color: orange;
+  padding-top: 6px;
 }
 
 .location::-webkit-input-placeholder {
@@ -108,7 +112,7 @@ body *{
 }
 
 /**************************
-    HOURLY/TEN DAY WEATHER
+    HOURLY WEATHER
 **************************/
 
 .hourly-forecast, .ten-day-forecast{
@@ -179,6 +183,8 @@ body *{
     width: 101%;
     justify-content: space-around;
     top: -10px;
+    background-color: rgba(0, 0, 0, .3);
+    padding-top: 14px;
   }
 
   .current-temp{
