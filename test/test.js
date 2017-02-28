@@ -53,16 +53,6 @@ describe('testing Weatherly in enzyme', () => {
     wrapper.find('.submit').simulate('click');
     expect(instance.submitLocation.calledOnce).to.equal(true);
   });
-
-  it.skip('Test the URL func', () => {
-    // local storage
-
-  });
-
-  it.skip('Test the URL func', () => {
-    // validation of location - error
-
-  });
 });
 
 describe('ObjectCleaner testing in enzyme', () => {
