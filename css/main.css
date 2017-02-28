@@ -152,6 +152,8 @@ body *{
 
 .hourly {
   display: inline-block;
+  font-size: 20px;
+  margin-bottom: 5px;
 }
 
 .hourly-title, .ten-day-title {
@@ -160,11 +162,11 @@ body *{
 }
 
 .hourly-temp {
-  margin-bottom: 3px;
+  /*margin-bottom: 3px;*/
 }
 
 .hourly-time {
-  margin-top: 6px;
+  /*margin-top: 6px;*/
 }
 
 .dot-icon {
