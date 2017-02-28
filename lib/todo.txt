@@ -2,5 +2,3 @@ TODO:
 - api error for location - fix!
 - test for localStorage
 - mocking? what is it? did we do it?
--axe when mobile -- BECCA
--background 100% to fix bottom aka wrapper -- TIM
