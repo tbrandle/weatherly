@@ -142,6 +142,8 @@ body *{
   display: flex;
   flex-wrap: wrap;
   border-bottom: 1px grey solid;
+  font-size: 20px;
+  margin-bottom: 5px;
 }
 
 .hourly, .ten-day{
@@ -159,7 +161,6 @@ body *{
 
 .hourly-temp {
   margin-bottom: 3px;
-  font-size: 17px;
 }
 
 .hourly-time {
