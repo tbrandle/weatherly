@@ -14,7 +14,7 @@ body *{
 
 .wrapper {
   text-align: center;
-  margin: 10px;
+  background-color: rgba(0, 0, 0, .3)
 }
 
 /**************************
@@ -30,10 +30,19 @@ body *{
   margin: 21.44px
 }
 
+.logo {
+  color: orange;
+}
+
+.location::-webkit-input-placeholder {
+  color: lightgray;
+  text-shadow: 1px 1px gray;
+}
+
 .location {
   text-align: center;
   border: none;
-  border-bottom: 2px black solid;
+  border-bottom: 2px orange solid;
   width: 163px;
   padding: 6px;
   background-color: transparent;
@@ -45,6 +54,7 @@ body *{
   top: 2px;
   padding: 0 13px;
 }
+
 /**************************
       CURRENT WEATHER
 **************************/
@@ -57,7 +67,6 @@ body *{
 .today-current{
   border-bottom: 1px grey solid;
   padding-bottom: 15px;
-  /*max-width: 90%;*/
 }
 
 .current-location {
@@ -85,6 +94,7 @@ body *{
   margin-top: inherit;
   font-size: 15px;
 }
+
 .current-hi, .current-low {
   display: inline-block;
 }
@@ -111,8 +121,13 @@ body *{
     display: none;
 }
 
+.ten-day-section {
+  margin: 0px 10px;
+}
+
 .hourly-section {
   border-bottom: 1px grey solid;
+  margin: 0px 10px;
 }
 
 .hourly-title{
@@ -155,11 +170,15 @@ body *{
 /**************************
     MEDIA QUERY
 **************************/
+
 @media (min-width: 700px){
 
   .input-section {
     display: flex;
+    position: relative;
+    width: 101%;
     justify-content: space-around;
+    top: -10px;
   }
 
   .current-temp{
@@ -170,10 +189,9 @@ body *{
     display: none;
   }
 
-.location{
-  color: black;
-  font-size: 21px;
-}
+  .location{
+    font-size: 21px;
+  }
 
   .hourly-section {
     display: inline-block;
@@ -212,7 +230,6 @@ body *{
     font-size: 25px;
   }
 
-
   .current-hi {
     font-size: 25px;
   }
@@ -220,5 +237,4 @@ body *{
   .current-low {
     font-size: 20px;
   }
-
 }

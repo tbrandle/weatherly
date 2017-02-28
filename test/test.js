@@ -41,21 +41,17 @@ describe('testing Weatherly in enzyme', () => {
     expect(wrapper.state().location).to.equal('englewood');
   });
 
-  it.only('Weatherly should update weather state on button click', () => {
-    // const weatherFake = require('./helpers/stub.json');
-    // const cleanObj = objectCleaner(weatherFake);
+  it('Weatherly should run submitLocation function on click', () => {
+    const wrapper = shallow(<Weatherly />);
 
-    const wrapper = mount(<Weatherly />);
+    const instance = wrapper.instance();
+    sinon.spy(instance, 'submitLocation');
 
-    // should spy on submitLocation not onClick
-    sinon.spy(wrapper.find('.submit'), 'click');
-    // wrapper.find('.submit').simulate('click');
-    expect(wrapper.find('.submit').instance().submitLocation.calledOnce).to.equal(true);
-  });
-
-  it.skip('Test the URL func', () => {
-    // url get function
-
+    wrapper.find('.location').simulate('change', {
+      target: { value: 'englewood' },
+    });
+    wrapper.find('.submit').simulate('click');
+    expect(instance.submitLocation.calledOnce).to.equal(true);
   });
 
   it.skip('Test the URL func', () => {
