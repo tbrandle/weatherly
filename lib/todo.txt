@@ -1,4 +1,0 @@
-TODO:
-- api error for location - fix!
-- test for localStorage
-- mocking? what is it? did we do it?
