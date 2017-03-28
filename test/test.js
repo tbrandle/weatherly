@@ -56,7 +56,7 @@ describe('testing Weatherly in enzyme', () => {
 });
 
 describe('ObjectCleaner testing in enzyme', () => {
-  const weatherFake = require('./helpers/stub.json');
+  const weat = require('./helpers/stub.json');
   const wrapper = shallow(<WeatherCards weather={ objectCleaner(weatherFake) } />);
 
   it('Should have a current weather object', () => {
