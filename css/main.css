@@ -68,6 +68,10 @@ body *{
   margin: 12px auto;
 }
 
+.valid-city{
+  height: 100vh;
+}
+
 .today-current {
   border-bottom: 1px grey solid;
   padding-bottom: 15px;
