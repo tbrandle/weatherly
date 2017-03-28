@@ -29651,7 +29651,7 @@
 	            _react2.default.createElement('input', { tabIndex: '0',
 	              className: 'submit',
 	              type: 'image',
-	              src: '../../css/images/search.png', alt: 'Submit button',
+	              src: 'https://rawgit.com/tbrandle/weatherly/master/css/images/search.svg', alt: 'Submit button',
 	              disabled: !this.state.location,
 	              onClick: this.submitLocation.bind(this) })
 	          )
@@ -40014,7 +40014,7 @@
 	            );
 	          })
 	        ),
-	        _react2.default.createElement('img', { className: 'dot-icon', src: '../../css/images/dots.svg', alt: 'scrolling dots' })
+	        _react2.default.createElement('img', { className: 'dot-icon', src: 'https://rawgit.com/tbrandle/weatherly/master/css/images/dots.svg', alt: 'scrolling dots' })
 	      );
 	    }
 	  }]);
