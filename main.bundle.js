@@ -29651,7 +29651,7 @@
 	            _react2.default.createElement('input', { tabIndex: '0',
 	              className: 'submit',
 	              type: 'image',
-	              src: '../../css/images/search.svg', alt: 'Submit button',
+	              src: '../../css/images/search.png', alt: 'Submit button',
 	              disabled: !this.state.location,
 	              onClick: this.submitLocation.bind(this) })
 	          )
