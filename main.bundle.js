@@ -29597,29 +29597,38 @@
 
 	    _this.state = {
 	      location: '',
-	      weather: []
+	      weather: [],
+	      storedItem: localStorage.getItem('location')
 	    };
 	    return _this;
 	  }
 
 	  _createClass(Weatherly, [{
+	    key: 'componentDidMount',
+	    value: function componentDidMount() {
+	      var storedItem = this.state.storedItem;
+
+	      if (storedItem) {
+	        this.fetchWeather(storedItem);
+	      }
+	    }
+	  }, {
 	    key: 'submitLocation',
 	    value: function submitLocation(e) {
 	      localStorage.setItem('location', this.state.location);
-	      this.componentDidMount();
+	      this.fetchWeather(this.state.location);
 	      this.setState({ location: '' });
 	    }
 	  }, {
-	    key: 'componentDidMount',
-	    value: function componentDidMount() {
+	    key: 'fetchWeather',
+	    value: function fetchWeather(location) {
 	      var _this2 = this;
 
-	      var storedItem = localStorage.getItem('location');
-	      if (storedItem) {
-	        _jquery2.default.get(this.props.source + '/' + storedItem + '.json').then(function (data) {
-	          _this2.setState({ weather: (0, _ObjectCleaner2.default)(data) });
-	        });
-	      }
+	      fetch(this.props.source + '/' + location + '.json').then(function (response) {
+	        return response.json();
+	      }).then(function (data) {
+	        _this2.setState({ weather: (0, _ObjectCleaner2.default)(data) });
+	      });
 	    }
 	  }, {
 	    key: 'render',
@@ -29653,7 +29662,9 @@
 	              type: 'image',
 	              src: 'https://rawgit.com/tbrandle/weatherly/master/css/images/search.svg', alt: 'Submit button',
 	              disabled: !this.state.location,
-	              onClick: this.submitLocation.bind(this) })
+	              onClick: function onClick() {
+	                return _this3.submitLocation;
+	              } })
 	          )
 	        ),
 	        _react2.default.createElement(_WeatherCards2.default, { weather: this.state.weather })
@@ -39998,7 +40009,7 @@
 	          this.props.hourlyArray.map(function (value, i) {
 	            return _react2.default.createElement(
 	              'div',
-	              { className: 'hourly' },
+	              { className: 'hourly', key: i },
 	              _react2.default.createElement(
 	                'p',
 	                { className: 'hourly-time', tabIndex: '0' },
@@ -40126,7 +40137,7 @@
 	        this.props.tenDayArray.map(function (value, i) {
 	          return _react2.default.createElement(
 	            'div',
-	            { className: 'ten-day-forecast' },
+	            { className: 'ten-day-forecast', key: i },
 	            _react2.default.createElement(
 	              'p',
 	              { tabIndex: '0' },
