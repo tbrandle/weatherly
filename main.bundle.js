@@ -29610,8 +29610,7 @@
 	    }
 	  }, {
 	    key: 'submitLocation',
-	    value: function submitLocation(e) {
-	      console.log("is this working");
+	    value: function submitLocation() {
 	      localStorage.setItem('location', this.state.location);
 	      this.fetchWeather(this.state.location);
 	      this.setState({ location: '' });
